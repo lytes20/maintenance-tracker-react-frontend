@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/lytes20/maintenance-tracker-react-frontend.svg?branch=develop)](https://travis-ci.org/lytes20/maintenance-tracker-react-frontend)
+
 Maintenance Tracker
 =======
 
