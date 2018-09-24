@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/lytes20/maintenance-tracker-react-frontend.svg?branch=develop)](https://travis-ci.org/lytes20/maintenance-tracker-react-frontend)
-[![Coverage Status](https://coveralls.io/repos/github/lytes20/maintenance-tracker-react-frontend/badge.svg?branch=develop)](https://coveralls.io/github/lytes20/maintenance-tracker-react-frontend?branch=develop)
 
 Maintenance Tracker
 =======
