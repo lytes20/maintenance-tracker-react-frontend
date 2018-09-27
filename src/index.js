@@ -9,5 +9,5 @@ ReactDOM.render(
   <Provider store={configureStore()}>
     <MT />
   </Provider>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
