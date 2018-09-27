@@ -10,12 +10,11 @@ beforeEach(() => {
 });
 
 describe('<MT /> component', () => {
-  it('renders two <MaintenanceTracker /> components', () => {
-    expect(wrapper.find('MaintenanceTracker').length).toBe(2);
+  it('renders one <HeaderComponent />', () => {
+    expect(wrapper.find('HeaderComponent').length).toBe(1);
   });
 
-  it('renders button with text testing', () => {
-    const testingButton = wrapper.find('button');
-    expect(testingButton.text()).toBe('Testing');
+  it('renders one <LandingComponent />', () => {
+    expect(wrapper.find('LandingComponent').length).toBe(1);
   });
 });
