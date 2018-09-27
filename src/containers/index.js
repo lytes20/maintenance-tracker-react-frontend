@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import MaintenanceTracker from '../components/index';
 import simpleAction from '../actions/simpleAction';
+import styles from '../css/indexContainer.css';
 
 export class MT extends Component {
   state = {};
@@ -12,7 +13,7 @@ export class MT extends Component {
         <pre>{JSON.stringify(this.props)}</pre>
         <MaintenanceTracker />
         <MaintenanceTracker />
-        <button onClick={this.props.simpleAction}>Testing</button>
+        <button className={styles.myButton} onClick={this.props.simpleAction}>Testing</button>
       </div>
     );
   }
