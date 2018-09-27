@@ -1,0 +1,32 @@
+.landing {
+  background: url(../images/bg_one.jpg) no-repeat;
+  width: 100%;
+  height: 662px;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.child_landig {
+  vertical-align: middle;
+  width: inherit;
+}
+.landing_intro {
+  font-size: 40px;
+  line-height: 1.15;
+  font-weight: bold;
+}
+
+.landing_subintro {
+  font-size: 36px;
+  margin: 10px 0 20px;
+}
+.get_started {
+  display: inline-block !important;
+  font-size: 26px;
+  padding: 16px 20px !important;
+  background: #1a237e;
+  border-radius: 4px;
+}
+.get_started:hover {
+  background: #02b3e4;
+}
