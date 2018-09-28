@@ -16,3 +16,6 @@ Maintenance Tracker App is an application that provides users with the ability t
 ### Running tests
 
 `npm run test`
+
+### Heroku hosting
+- Application is hosted on Heroku and can be found [here](https://maintenance-tracker-ui-react.herokuapp.com/)
