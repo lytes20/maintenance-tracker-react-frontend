@@ -181,6 +181,8 @@ module.exports = {
                       loader: require.resolve('css-loader'),
                       options: {
                         importLoaders: 1,
+                        modules: true,
+                        localIdentName: '[name]__[local]__[hash:base64:5]',
                         minimize: true,
                         sourceMap: shouldUseSourceMap,
                       },
@@ -229,21 +231,10 @@ module.exports = {
           },
           {
             test: /\.scss$/,
-            use: ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-              use: [
-                {
-                  loader: 'css-loader',
-                  options: {
-                    modules: true,
-                    sourceMap: true,
-                    importLoaders: 2,
-                    localIdentName: '[name]__[local]___[hash:base64:5]'
-                  }
-                },
-              'sass-loader'
-              ]
-            })
+            loader: ExtractTextPlugin.extract(
+              'style',
+              'css?importLoaders=1&-autoprefixer!postcss!sass',
+            ),
           },
           // ** STOP ** Are you adding a new loader?
           // Make sure to add the new loader(s) before the "file" loader.
