@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import MT from './containers/index';
 import LoginComponent from './components/login';
+import SignupComponent from './components/signup';
 
 const routes = () => {
   return (
@@ -11,6 +12,7 @@ const routes = () => {
         <Switch>
           <Route path="/" exact component={MT} />
           <Route path="/login" exact component={LoginComponent} />
+          <Route path="/signup" exact component={SignupComponent} />
         </Switch>
       </BrowserRouter>
     </div>

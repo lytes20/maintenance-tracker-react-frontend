@@ -19,7 +19,7 @@ class HeaderComponent extends Component {
                   <a href="login.html">Log In</a>
                 </li>
                 <li>
-                  <a href="signup.html">Sign Up</a>
+                  <a href="/signup">Sign Up</a>
                 </li>
                 <li>
                   <a href="admin_dashboard.html">Admin Dashboard</a>
