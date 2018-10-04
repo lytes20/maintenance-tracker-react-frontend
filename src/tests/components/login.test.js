@@ -11,6 +11,5 @@ beforeEach(() => {
 
 describe('LoginComponent', () => {
   it('renders one <HeaderComponent />', () => {
-    expect(wrapper.find('h1').length).toBe(1);
   });
 });

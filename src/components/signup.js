@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { NavLink } from 'react-router-dom';
 import styles from '../index.scss';
 
 class SignupComponent extends Component {
@@ -105,7 +104,6 @@ class SignupComponent extends Component {
   };
 
   render() {
-    const { touched } = this.state;
     return (
       <div className={styles.signup_login_form}>
         <h1 className={styles.form_heading}>Sign Up</h1>
@@ -156,23 +154,7 @@ class SignupComponent extends Component {
             onChange={this.onChangeHandler}
           />
           <span className={styles.spanerrors}>{this.validationHandler('confirm_password')}</span>
-
-          {this.validationHandler('username')
-          || this.validationHandler('emailaddress')
-          || this.validationHandler('password')
-          || this.validationHandler('confirm_password')
-          || (!touched.username
-            || !touched.emailaddress
-            || !touched.password
-            || !touched.confirm_password) ? (
-              <NavLink to="/login">
-                <input type="submit" className={styles.disabledButton} value="Sign Up" disabled />
-              </NavLink>
-            ) : (
-              <NavLink to="/login">
-                <input type="submit" name="signup" value="Sign Up" disabled={false} />
-              </NavLink>
-            )}
+          <input type="submit" name="signup" value="Sign Up" disabled={false} />
         </form>
       </div>
     );
