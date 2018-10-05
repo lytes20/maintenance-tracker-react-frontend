@@ -1,0 +1,54 @@
+/*Css unique to the homepage alone*/
+
+.requests_wrapper {
+  padding: 20px;
+}
+.request a {
+  text-decoration: none;
+  color: #202124;
+}
+
+.create_newrequest_wrapper {
+  width: 100%;
+  height: 120px;
+  background-color: gray;
+  text-align: center;
+  color: white;
+}
+
+h2 {
+  font-size: 20px;
+}
+.request .text_container {
+  width: 80%;
+}
+.image_container {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.request p {
+  margin: 5px 5px 5px 0;
+  font-size: 12px;
+}
+.request_status_container {
+  overflow: auto;
+}
+.request_status {
+  float: right;
+}
+.request_date {
+  font-size: 10px;
+  color: gray;
+  margin-top: 2px;
+}
+.create_newrequest_wrapper a {
+  padding: 10px;
+}
+.create_newrequest_wrapper p {
+  padding: 10px;
+}
+.create_newrequest_wrapper a img {
+  width: 40px;
+  height: 40px;
+}
