@@ -45,7 +45,7 @@ class UserHomePage extends Component {
         <div>
           <div className={styles.create_newrequest_wrapper}>
             <p>Create new maintenance, repair request</p>
-            <a href="new-request">
+            <a href="create-new-request">
               <img src={plusicon} alt="plus" />
             </a>
           </div>
