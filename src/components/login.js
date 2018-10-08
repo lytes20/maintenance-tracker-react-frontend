@@ -41,7 +41,7 @@ class LoginComponent extends Component {
     return axios
       .post('https://m-tracker-flask-api.herokuapp.com/api/v1/user/login', userData)
       .then(response => {
-        console.log(response.data.msg.token);
+        localStorage.setItem('token', response.data.msg.token);
         this.setState({ loading: false });
         const { history } = this.props;
         history.push('/home');
