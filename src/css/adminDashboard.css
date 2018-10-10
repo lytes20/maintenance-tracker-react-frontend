@@ -1,0 +1,25 @@
+.approveButton,
+.rejectButton,
+.resolveButton {
+  letter-spacing: 0;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.9375rem;
+  color: white;
+  padding: 8px;
+  width: 20%;
+  border-radius: 3px;
+  text-align: center;
+  background-color: #203e64;
+  border-color: 203e64;
+}
+
+.rejectButton {
+  background-color: #802926;
+  border-color: 203e64;
+}
+
+.resolveButton {
+  background-color: #215a10;
+  border-color: 203e64;
+}

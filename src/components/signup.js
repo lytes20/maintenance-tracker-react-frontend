@@ -86,12 +86,11 @@ class SignupComponent extends Component {
 
     return axios
       .post('https://m-tracker-flask-api.herokuapp.com/api/v1/user/register', userData)
-      .then(response => {
-        console.log(response);
+      .then(() => {
         alert('Successfuly registered');
       })
-      .catch(error => {
-        console.log(error);
+      .catch(() => {
+        // TODO: Handle this error
       });
   };
 

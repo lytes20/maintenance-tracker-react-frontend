@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import styles from '../index.scss';
 import HeaderComponent from './header';
@@ -15,6 +15,7 @@ class LoginComponent extends Component {
     },
     message: '',
     loading: false,
+    isAdmin: false,
   };
 
   onChangeHandler = event => {
@@ -23,9 +24,13 @@ class LoginComponent extends Component {
   };
 
   redirectToHomePage = () => {
-    console.log('I get called');
-    return <Redirect to="/home" />;
-  }
+    const { isAdmin } = this.state;
+    const { history } = this.props;
+    if (isAdmin) {
+      return history.push('/admin');
+    }
+    return history.push('/home');
+  };
 
   handleLoginSubmission = event => {
     event.preventDefault();
@@ -43,11 +48,10 @@ class LoginComponent extends Component {
       .then(response => {
         localStorage.setItem('token', response.data.msg.token);
         this.setState({ loading: false });
-        const { history } = this.props;
-        history.push('/home');
+        this.setState({ isAdmin: response.data.is_admin });
+        this.redirectToHomePage();
       })
-      .catch(error => {
-        console.log(error);
+      .catch(() => {
         this.setState({ message: 'invalid email/password' });
         this.setState({ loading: false });
       });
@@ -85,5 +89,13 @@ class LoginComponent extends Component {
     );
   }
 }
+
+LoginComponent.propTypes = {
+  history: PropTypes.object,
+};
+
+LoginComponent.defaultProps = {
+  history: {},
+};
 
 export default LoginComponent;
