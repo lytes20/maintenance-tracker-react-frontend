@@ -10,10 +10,10 @@ class LandingComponent extends Component {
         <div className={styles.child_landig}>
           <p className={styles.landing_intro}>Customer satisfaction is a major key</p>
           <p className={styles.landing_subintro}>
-            Make a repair or maintenance request, track and view the progress of your request and
-            also edit your request
+            Make a repair or maintenance request, track and view the progress of your maintenance
+            request
           </p>
-          <a href="home.html" className={styles.get_started}>
+          <a href="/login" className={styles.get_started}>
             Get Started
           </a>
         </div>
