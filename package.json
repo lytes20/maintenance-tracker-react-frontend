@@ -71,7 +71,8 @@
       "src/**/*.{js,jsx,mjs}",
       "!src/index.js",
       "!src/store.js",
-      "!src/routes.js"
+      "!src/routes.js",
+      "!src/setupTests.js"
     ],
     "setupFiles": [
       "<rootDir>/config/polyfills.js"

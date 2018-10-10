@@ -22,7 +22,7 @@ class HeaderComponent extends Component {
                   <a href="/signup">Sign Up</a>
                 </li>
                 <li>
-                  <a href="admin_dashboard.html">Admin Dashboard</a>
+                  <a href="/admin">Admin Dashboard</a>
                 </li>
               </ul>
             </nav>

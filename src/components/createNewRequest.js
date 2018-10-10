@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 import styles from '../index.scss';
 import Loader from './loader';
@@ -33,14 +34,12 @@ class CreateNewRequestComponent extends Component {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then(response => {
-        console.log('response', response);
+      .then(() => {
         this.setState({ loading: false });
         const { history } = this.props;
         history.push('/home');
       })
-      .catch(error => {
-        console.log(error);
+      .catch(() => {
         this.setState({ loading: false });
       });
   };
@@ -77,5 +76,13 @@ class CreateNewRequestComponent extends Component {
     );
   }
 }
+
+CreateNewRequestComponent.propTypes = {
+  history: PropTypes.object,
+};
+
+CreateNewRequestComponent.defaultProps = {
+  history: {},
+};
 
 export default CreateNewRequestComponent;
