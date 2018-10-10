@@ -70,6 +70,23 @@ class AdminDashboard extends Component {
     }
   };
 
+  handleResolve = async requestID => {
+    const token = localStorage.getItem('token');
+    try {
+      await axios.put(
+        `https://m-tracker-flask-api.herokuapp.com/api/v1/requests/${requestID}/resolve`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+      this.fetchUserRequests();
+    } catch (e) {
+      // TODO: Handle error
+    }
+  };
+
   render() {
     const { requestList, loading } = this.state;
     const statusStyle = [styles2.request_status, ''].join(' ');
@@ -98,7 +115,12 @@ class AdminDashboard extends Component {
                 >
                   Reject
                 </button>
-                <button className={adminStyles.resolveButton}>Resolve</button>
+                <button
+                  className={adminStyles.resolveButton}
+                  onClick={() => this.handleResolve(request.request_id)}
+                >
+                  Resolve
+                </button>
               </div>
             </a>
           </div>
