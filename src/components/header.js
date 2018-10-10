@@ -21,9 +21,6 @@ class HeaderComponent extends Component {
                 <li>
                   <a href="/signup">Sign Up</a>
                 </li>
-                <li>
-                  <a href="/admin">Admin Dashboard</a>
-                </li>
               </ul>
             </nav>
           </div>

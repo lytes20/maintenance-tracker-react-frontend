@@ -12,6 +12,7 @@
   text-align: center;
   background-color: #203e64;
   border-color: 203e64;
+  cursor: pointer;
 }
 
 .rejectButton {
