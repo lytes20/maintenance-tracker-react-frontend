@@ -100,7 +100,7 @@ class AdminDashboard extends Component {
           <center>{loading ? <Loader /> : null}</center>
           {requestList.map((request, index) => (
             <div key={index} className={styles2.request}>
-              <a href="#">
+              <a href="">
                 <div className={styles.text_container}>
                   <h2>{request.request_title}</h2>
                   <p>{request.request_desc}</p>

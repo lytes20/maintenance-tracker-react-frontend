@@ -49,11 +49,13 @@ class LoginComponent extends Component {
         localStorage.setItem('token', response.data.msg.token);
         this.setState({ loading: false });
         this.setState({ isAdmin: response.data.is_admin });
+        localStorage.setItem('isLoggedIn', true);
         this.redirectToHomePage();
       })
       .catch(() => {
         this.setState({ message: 'invalid email/password' });
         this.setState({ loading: false });
+        localStorage.removeItem('isLoggedIn');
       });
   };
 
