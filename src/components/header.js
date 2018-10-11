@@ -6,6 +6,7 @@ class HeaderComponent extends Component {
 
   handleLogOut = () => {
     localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('token');
     window.location.replace('/login');
   };
 
