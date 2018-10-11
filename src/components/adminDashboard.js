@@ -11,6 +11,7 @@ class AdminDashboard extends Component {
   state = {
     requestList: [],
     loading: false,
+    adminActionLoading: false,
   };
 
   componentDidMount() {
@@ -19,6 +20,7 @@ class AdminDashboard extends Component {
 
   fetchUserRequests = () => {
     this.setState({ loading: true });
+    const { requestList } = this.state;
     const token = localStorage.getItem('token');
     return axios
       .get('https://m-tracker-flask-api.herokuapp.com/api/v1/requests', {
@@ -31,6 +33,7 @@ class AdminDashboard extends Component {
           // Do nothing
         } else {
           this.setState({ requestList: response.data.requests, loading: false });
+          console.log(requestList);
         }
       })
       .catch({
@@ -40,8 +43,9 @@ class AdminDashboard extends Component {
 
   handleApprove = async requestID => {
     const token = localStorage.getItem('token');
+    const { requestList } = this.state;
     try {
-      await axios.put(
+      const response = await axios.put(
         `https://m-tracker-flask-api.herokuapp.com/api/v1/requests/${requestID}/approve`,
         {
           headers: {
@@ -49,7 +53,16 @@ class AdminDashboard extends Component {
           },
         },
       );
-      this.fetchUserRequests();
+      if (response.status === 200) {
+        for (let i = 0; i < requestList.length; i += 1) {
+          if (requestList[i].request_id === requestID) {
+            requestList[i].request_status = 'in progress';
+          }
+        }
+        this.setState({
+          requestList,
+        });
+      }
     } catch (e) {
       // TODO: Handle error
     }
@@ -57,8 +70,9 @@ class AdminDashboard extends Component {
 
   handleReject = async requestID => {
     const token = localStorage.getItem('token');
+    const { requestList } = this.state;
     try {
-      await axios.put(
+      const response = await axios.put(
         `https://m-tracker-flask-api.herokuapp.com/api/v1/requests/${requestID}/reject`,
         {
           headers: {
@@ -66,7 +80,16 @@ class AdminDashboard extends Component {
           },
         },
       );
-      this.fetchUserRequests();
+      if (response.status === 200) {
+        for (let i = 0; i < requestList.length; i += 1) {
+          if (requestList[i].request_id === requestID) {
+            requestList[i].request_status = 'rejected';
+          }
+        }
+        this.setState({
+          requestList,
+        });
+      }
     } catch (e) {
       // TODO: Handle error
     }
@@ -74,8 +97,9 @@ class AdminDashboard extends Component {
 
   handleResolve = async requestID => {
     const token = localStorage.getItem('token');
+    const { requestList } = this.state;
     try {
-      await axios.put(
+      const response = await axios.put(
         `https://m-tracker-flask-api.herokuapp.com/api/v1/requests/${requestID}/resolve`,
         {
           headers: {
@@ -83,14 +107,23 @@ class AdminDashboard extends Component {
           },
         },
       );
-      this.fetchUserRequests();
+      if (response.status === 200) {
+        for (let i = 0; i < requestList.length; i += 1) {
+          if (requestList[i].request_id === requestID) {
+            requestList[i].request_status = 'finished';
+          }
+        }
+        this.setState({
+          requestList,
+        });
+      }
     } catch (e) {
       // TODO: Handle error
     }
   };
 
   render() {
-    const { requestList, loading } = this.state;
+    const { requestList, loading, adminActionLoading } = this.state;
     const statusStyle = [styles2.request_status, ''].join(' ');
     return (
       <div>
@@ -100,7 +133,8 @@ class AdminDashboard extends Component {
           <center>{loading ? <Loader /> : null}</center>
           {requestList.map((request, index) => (
             <div key={index} className={styles2.request}>
-              <a href="">
+              <center>{adminActionLoading ? <Loader /> : null}</center>
+              <a>
                 <div className={styles.text_container}>
                   <h2>{request.request_title}</h2>
                   <p>{request.request_desc}</p>
