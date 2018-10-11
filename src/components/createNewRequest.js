@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import styles from '../index.scss';
 import Loader from './loader';
+import HeaderComponent from './header';
 
 class CreateNewRequestComponent extends Component {
   state = {
@@ -47,31 +48,38 @@ class CreateNewRequestComponent extends Component {
   render() {
     const { loading } = this.state;
     return (
-      <div className={styles.signup_login_form}>
-        <center>{loading ? <Loader /> : null}</center>
-        <h1 className={styles.form_heading}>Create a new request</h1>
-        <hr />
+      <div>
+        <HeaderComponent />
+        <div className={styles.signup_login_form}>
+          <center>{loading ? <Loader /> : null}</center>
+          <h1 className={styles.form_heading}>Create a new request</h1>
+          <hr />
 
-        <form onSubmit={this.handleRequestSubmission}>
-          <label htmlFor="title">
-            Request title:
-            <input
-              id="title"
-              type="text"
-              name="requestTitle"
-              placeholder="e.g iphone screen repair"
-              onChange={this.onChangeHandler}
-            />
-          </label>
+          <form onSubmit={this.handleRequestSubmission}>
+            <label htmlFor="title">
+              Request title:
+              <input
+                id="title"
+                type="text"
+                name="requestTitle"
+                placeholder="e.g iphone screen repair"
+                onChange={this.onChangeHandler}
+              />
+            </label>
 
-          {/* eslint jsx-a11y/label-has-for: 0 */}
-          <label htmlFor="description">
-            Request description:
-            <textarea id="description" name="requestDescription" onChange={this.onChangeHandler} />
-          </label>
+            {/* eslint jsx-a11y/label-has-for: 0 */}
+            <label htmlFor="description">
+              Request description:
+              <textarea
+                id="description"
+                name="requestDescription"
+                onChange={this.onChangeHandler}
+              />
+            </label>
 
-          <input type="submit" value="submit" />
-        </form>
+            <input type="submit" value="submit" />
+          </form>
+        </div>
       </div>
     );
   }
