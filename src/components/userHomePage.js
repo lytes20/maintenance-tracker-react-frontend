@@ -5,7 +5,6 @@ import HeaderComponent from './header';
 import styles from '../css/home.css';
 import styles2 from '../index.scss';
 import plusicon from '../images/plus.png';
-// import statusImage from '../images/broken_iphone.jpg';
 import EmptyRequestComponent from './emptyRequests';
 
 class UserHomePage extends Component {
@@ -55,7 +54,7 @@ class UserHomePage extends Component {
             <h1>Requests</h1>
             {requestList.map((request, index) => (
               <div key={index} className={styles2.request}>
-                <a href="#">
+                <a href="">
                   <div className={styles.text_container}>
                     <h2>{request.request_title}</h2>
                     <p>{request.request_desc}</p>
