@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+
+import HeaderComponent from './header';
 import styles from '../index.scss';
 
 class SignupComponent extends Component {
@@ -104,57 +106,60 @@ class SignupComponent extends Component {
 
   render() {
     return (
-      <div className={styles.signup_login_form}>
-        <h1 className={styles.form_heading}>Sign Up</h1>
-        <hr />
-        <p>Create your account with Maintenance Tracker</p>
-        <form onSubmit={this.handleSigupSubmission}>
-          <input
-            type="text"
-            name="username"
-            placeholder="User Name"
-            onChange={this.onChangeHandler}
-          />
-          <span className={styles.spanerrors}>{this.validationHandler('username')}</span>
-          <input
-            type="text"
-            name="firstname"
-            placeholder="First Name"
-            onChange={this.onChangeHandler}
-          />
-          <span className={styles.spanerrors}>{this.validationHandler('firstname')}</span>
-          <input
-            type="text"
-            name="lastname"
-            placeholder="Last Name"
-            onChange={this.onChangeHandler}
-          />
-          <span className={styles.spanerrors}>{this.validationHandler('lastname')}</span>
-          <input
-            type="text"
-            name="emailaddress"
-            placeholder="Email Address"
-            onChange={this.onChangeHandler}
-          />
-          <span className={styles.spanerrors}>{this.validationHandler('emailaddress')}</span>
+      <div>
+        <HeaderComponent />
+        <div className={styles.signup_login_form}>
+          <h1 className={styles.form_heading}>Sign Up</h1>
+          <hr />
+          <p>Create your account with Maintenance Tracker</p>
+          <form onSubmit={this.handleSigupSubmission}>
+            <input
+              type="text"
+              name="username"
+              placeholder="User Name"
+              onChange={this.onChangeHandler}
+            />
+            <span className={styles.spanerrors}>{this.validationHandler('username')}</span>
+            <input
+              type="text"
+              name="firstname"
+              placeholder="First Name"
+              onChange={this.onChangeHandler}
+            />
+            <span className={styles.spanerrors}>{this.validationHandler('firstname')}</span>
+            <input
+              type="text"
+              name="lastname"
+              placeholder="Last Name"
+              onChange={this.onChangeHandler}
+            />
+            <span className={styles.spanerrors}>{this.validationHandler('lastname')}</span>
+            <input
+              type="text"
+              name="emailaddress"
+              placeholder="Email Address"
+              onChange={this.onChangeHandler}
+            />
+            <span className={styles.spanerrors}>{this.validationHandler('emailaddress')}</span>
 
-          <input
-            type="text"
-            name="password"
-            placeholder="Password"
-            onChange={this.onChangeHandler}
-          />
-          <span className={styles.spanerrors}>{this.validationHandler('password')}</span>
+            <input
+              type="text"
+              name="password"
+              placeholder="Password"
+              onChange={this.onChangeHandler}
+            />
+            <span className={styles.spanerrors}>{this.validationHandler('password')}</span>
 
-          <input
-            type="text"
-            name="confirm_password"
-            placeholder="Confirm Password"
-            onChange={this.onChangeHandler}
-          />
-          <span className={styles.spanerrors}>{this.validationHandler('confirm_password')}</span>
-          <input type="submit" name="signup" value="Sign Up" disabled={false} />
-        </form>
+            <input
+              type="text"
+              name="confirm_password"
+              placeholder="Confirm Password"
+              onChange={this.onChangeHandler}
+            />
+            <span className={styles.spanerrors}>{this.validationHandler('confirm_password')}</span>
+            <input type="submit" name="signup" value="Sign Up" disabled={false} />
+          </form>
+        </div>
       </div>
     );
   }

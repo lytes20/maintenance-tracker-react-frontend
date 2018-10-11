@@ -5,6 +5,7 @@ import styles from '../css/home.css';
 import styles2 from '../index.scss';
 import adminStyles from '../css/adminDashboard.css';
 import Loader from './loader';
+import HeaderComponent from './header';
 
 class AdminDashboard extends Component {
   state = {
@@ -91,40 +92,43 @@ class AdminDashboard extends Component {
     const { requestList, loading } = this.state;
     const statusStyle = [styles2.request_status, ''].join(' ');
     return (
-      <div className={styles.requests_wrapper}>
-        <h1>Requests</h1>
-        <center>{loading ? <Loader /> : null}</center>
-        {requestList.map((request, index) => (
-          <div key={index} className={styles2.request}>
-            <a href="#">
-              <div className={styles.text_container}>
-                <h2>{request.request_title}</h2>
-                <p>{request.request_desc}</p>
-                <div className={styles.request_status_container}>
-                  <div className={statusStyle}>{request.request_status}</div>
+      <div>
+        <HeaderComponent />
+        <div className={styles.requests_wrapper}>
+          <h1>Requests</h1>
+          <center>{loading ? <Loader /> : null}</center>
+          {requestList.map((request, index) => (
+            <div key={index} className={styles2.request}>
+              <a href="#">
+                <div className={styles.text_container}>
+                  <h2>{request.request_title}</h2>
+                  <p>{request.request_desc}</p>
+                  <div className={styles.request_status_container}>
+                    <div className={statusStyle}>{request.request_status}</div>
+                  </div>
+                  <button
+                    className={adminStyles.approveButton}
+                    onClick={() => this.handleApprove(request.request_id)}
+                  >
+                    Approve
+                  </button>
+                  <button
+                    className={adminStyles.rejectButton}
+                    onClick={() => this.handleReject(request.request_id)}
+                  >
+                    Reject
+                  </button>
+                  <button
+                    className={adminStyles.resolveButton}
+                    onClick={() => this.handleResolve(request.request_id)}
+                  >
+                    Resolve
+                  </button>
                 </div>
-                <button
-                  className={adminStyles.approveButton}
-                  onClick={() => this.handleApprove(request.request_id)}
-                >
-                  Approve
-                </button>
-                <button
-                  className={adminStyles.rejectButton}
-                  onClick={() => this.handleReject(request.request_id)}
-                >
-                  Reject
-                </button>
-                <button
-                  className={adminStyles.resolveButton}
-                  onClick={() => this.handleResolve(request.request_id)}
-                >
-                  Resolve
-                </button>
-              </div>
-            </a>
-          </div>
-        ))}
+              </a>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
