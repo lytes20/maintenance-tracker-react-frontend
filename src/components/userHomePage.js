@@ -29,8 +29,9 @@ class UserHomePage extends Component {
       .then(response => {
         if (response.data.msg === 'You have not made any requests') {
           // Do nothing
+        } else {
+          this.setState({ hasRequests: true, requestList: response.data.requests });
         }
-        this.setState({ hasRequests: true, requestList: response.data.requests });
       })
       .catch({
         // TODO: Handle this error
@@ -57,9 +58,7 @@ class UserHomePage extends Component {
                 <a href="#">
                   <div className={styles.text_container}>
                     <h2>{request.request_title}</h2>
-                    <p>
-                      {request.request_desc}
-                    </p>
+                    <p>{request.request_desc}</p>
                     <div className={styles.request_status_container}>
                       <div className={statusStyle}>{request.request_status}</div>
                     </div>

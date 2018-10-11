@@ -29,8 +29,9 @@ class AdminDashboard extends Component {
       .then(response => {
         if (response.data.msg === 'You have not made any requests') {
           // Do nothing
+        } else {
+          this.setState({ requestList: response.data.requests, loading: false });
         }
-        this.setState({ requestList: response.data.requests, loading: false });
       })
       .catch({
         // TODO: Handle this error
